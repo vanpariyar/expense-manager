@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/w3.css">
+</head>
+<body onload="document.getElementById('login').style.display='block'">
+    <!-- Login form Modal And button -->
+    <!-- <button onclick="document.getElementById('login').style.display='block'" class="w3-btn w3-blue w3-large">Login</button> -->
+    <div id="login" class="w3-modal">
+        <span onclick="document.getElementById('login').style.display='none'" class="w3-closebtn w3-hover-red w3-padding-16 w3-container w3-display-topright">X</span>
+
+        <div class="w3-modal-content w3-card-8 w3-animate-zoom w3-round" style="max-width : 500px">
+            <div class="w3-center"><br>
+                <img src="../img/hari.jpg" alt="sarvavtari avtar photo" style="width : 30%" class="w3-circle w3-margin-top">
+            </div>
+
+            <div class="w3-container">
+                <div class="w3-section" id="gform" >
+                    <label><b>Username</b></label>
+                    <input id="uname" name="uname" value="hari" type="text" class="uname w3-input w3-border w3-margin-bottom" placeholder="Enter user name">
+                    <label><b>Password</b></label>
+                    <input id="pass" name="pass" type="password" class="uname w3-input w3-border" placeholder="Enter the password">
+                    <button onclick=validate(); class="w3-btn w3-btn-block w3-green w3-margin-top">Login</button>
+                </div>
+            </div>
+            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                <button onclick="document.getElementById('login').style.display='none'" type="button" class="w3-btn w3-red">Close</button>
+                <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+            </div>
+        </div>
+    </div>
+    <!-- Login form modal end-->
+
+    <script src="../js/a1.js"></script>
+</body>
+</html>
