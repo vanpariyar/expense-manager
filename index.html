@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jay Swaminarayan</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/a1.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+    
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Hisab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Navbar text with an inline element
+          </span>
+        </div>
+      </nav>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <header class="w3-container w3-blue w3-round w3-center">
+            <h3>Hisab nu module હિસાબ નું ફોર્મ</h3>
+          </header>
+          <form id="gform" ><br>
+            <input class=""  type="date" name="tarikh" id="tarikh" placeholder="Date તારીખ" required ><label class="" for="">Date તારીખ </label><br><br>
+            <input class="" type="text" name="what" id="what" placeholder="For What શેના માટે" required><label class="" for="">For What શેના માટે </label><br><br>
+            <input class="" type="number" name="kharcho" id="kharcho" placeholder="Kharcho ખર્ચો" required><label class="" for="">Kharcho ખર્ચો</label><br>
+          </form> <br>
+          <input onclick="insert_value();" id="insertbtn" class="btn btn-primary" type="submit" value="insert"><br>
+           <a class="w3-btn w3-ripple w3-round" href="https://docs.google.com/spreadsheets/d/1MnhtTO7rMuMFDvoPP6HTrU4CRrnQYX8Cv1Nv7eSbESw/edit?usp=sharing" target="_blank">Goto sheet</a><br>   
+          <footer class="w3-container w3-blue w3-round w3-center" >
+            <h3>Jay Swaminarayan જય સ્વામિનારાયણ</h3>
+          </footer>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+
+
+  <script>
+  
+  var script_url = "https://script.google.com/macros/s/AKfycbyvtKSzvxk8f5vum9qv_JVLtJNCqz8zbcHdN1-HsKqt2nx6psk/exec";
+  
+  // Make an AJAX call to Google Script
+  function insert_value() {
+    
+
+
+var tarikh=	$("#tarikh").val();
+	var what= $("#what").val();
+	var kharcho=$("#kharcho").val();
+	
+    var url = script_url+"?callback=ctrlq&tarikh="+tarikh+"&kharcho="+kharcho+"&what="+what+"&action=insert";
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  }
+  
+  function update_value(){
+	$("#re").css("visibility","hidden");
+     document.getElementById("loader").style.visibility = "visible";
+	
+
+    var id1=	$("#id").val();
+	var name= $("#name").val();
+	
+	
+	
+    var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=update";
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+	
+  }
+
+  
+ 
+  
+  
+  function delete_value(){
+	$("#re").css("visibility","hidden");
+     document.getElementById("loader").style.visibility = "visible";
+	$('#mySpinner').addClass('spinner');
+    var id1=	$("#id").val();
+	var name= $("#name").val();
+	
+	
+    var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=delete";
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  }
+
+
+  
+  
+  // print the returned data
+  function ctrlq(e) {
+	$("#re").html(e.result);
+	$("#re").css("visibility","visible");
+	read_value();
+  }
+  
+  
+
+  
+function read_value() {
+
+$("#re").css("visibility","hidden");
+   
+   document.getElementById("loader").style.visibility = "visible";
+ var url = script_url+"?action=read";
+
+$.getJSON(url, function (json) {
+
+    // Set the variables from the results array
+   
+   
+  
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+		
+
+        var header = table.createTHead();
+		var row = header.insertRow(0);     
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+	
+		cell1.innerHTML = "<b>ID</b>";
+		cell2.innerHTML = "<b>Name</b>";
+        
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < json.records.length; i++) {
+
+            tr = table.insertRow(-1);
+				var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = json.records[i].ID;
+				tabCell = tr.insertCell(-1);
+				tabCell.innerHTML = json.records[i].NAME;
+            }
+      
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+		document.getElementById("loader").style.visibility = "hidden";
+		$("#re").css("visibility","visible");
+    });
+	}
+  
+ </script>
+
+
+
+
+    <!-- floating Button -->
+    <div class="w3-center w3-padding-32">
+        <a onclick="document.getElementById('id01').style.display='block'" class="w3-circle w3-xlarge w3-button w3-black">+</a>
+    </div>
+    <!-- end floating button -->
+
+    
+    <!--  floating button modal -->
+    <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-8 w3-round ">
+        <header class="w3-container w3-teal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">X</span>
+            <h2>Select Any option</h2>
+        </header>
+        <div class="w3-container w3-padding-24">
+            <button onclick="document.getElementById('login').style.display='block'" class="w3-btn w3-blue w3-round">For login Jay Swaminarayan</button><br><br>
+            <button onclick="document.getElementById('hisab').style.display='block';document.getElementById('id01').style.display='none';" class="w3-btn w3-blue w3-round">Enter in hisab module હિસાબ નું ફોર્મ Jay Swaminarayan</button>
+        </div>
+        <footer class="w3-container w3-teal">
+            <blockquote>jay Swaminarayan</blockquote> 
+        </footer>
+    </div>
+    </div>
+    <!--  End floating button modal -->
+
+    <!-- One page hisab module -->
+    <div id="hisab" class="" style="display:none;">
+        
+     <div class="hisab w3-container w3-modal-content w3-card-8 w3-round" style="width:500px;">
+         <header class="w3-container w3-blue w3-round w3-center"><h3>Hisab nu module હિસાબ નું ફોર્મ</h3></header>
+         <form id="gform" ><br>
+             <input class="w3-input w3-border w3-round w3-animate-input"  style="width : 70%;" type="date" name="tarikh" id="tarikh" placeholder="Date તારીખ" required ><label class="w3-validate" for="">Date તારીખ </label><br><br>
+             <input class="w3-input w3-border w3-round w3-animate-input" style="width : 80%;" type="text" name="what" id="what" placeholder="For What શેના માટે" required><label class="w3-validate" for="">For What શેના માટે </label><br><br>
+             <input class="w3-input w3-border w3-round w3-animate-input" style="width : 75%;" type="number" name="kharcho" id="kharcho" placeholder="Kharcho ખર્ચો" required><label class="w3-validate" for="">Kharcho ખર્ચો</label><br>
+
+             <!--under devlopment>
+             <input class="w3-radio"  type="radio" name="from" id="hand" required><label for="">From Hand</label><br>
+             <input class="w3-radio"  type="radio" name="from" id="icic" required><label for="">From ICIC</label><br>
+             <input class="w3-radio"  type="radio" name="from" id="uco" required><label for="">From UCO</label><br>
+             <!-->
+
+         </form> <br>
+         <button onclick="var form=document.getElementById('gform');var elem=form.elements;if( elem[0].value !== '' && elem[1].value !== '' && elem[2].value !== ''){document.getElementById('insertbtn').style.display='block';document.getElementById('confirmbtn').style.display='none';}else{document.getElementById('kaikto').innerText='!!!Please Write full form Bhai'}" id="confirmbtn" class="w3-btn w3-center w3-ripple w3-round">Confirm</button><p id="kaikto"></p>
+            <input onclick="insert_value();document.getElementById('confirmbtn').style.display='block' ; document.getElementById('insertbtn').style.display='none';" id="insertbtn" class="w3-btn w3-round w3-ripple w3-display-center" type="submit" style="display:none;" value="insert"><br>
+            <button onclick="if(confirm('Do you Want to exit')){document.getElementById('hisab').style.display='none'}" class="w3-btn w3-round w3-red">Cancel</button> <a class="w3-btn w3-ripple w3-round" href="https://docs.google.com/spreadsheets/d/1MnhtTO7rMuMFDvoPP6HTrU4CRrnQYX8Cv1Nv7eSbESw/edit?usp=sharing" target="_blank">Goto sheet</a><br>   
+         <footer class="w3-container w3-blue w3-round w3-center" ><h3>Jay Swaminarayan જય સ્વામિનારાયણ</h3></footer>
+     </div>
+    </div>
+    <!-- End One page hisab module-->
+
+        <!-- Login form Modal And button 
+     <button onclick="document.getElementById('login').style.display='block'" class="w3-btn w3-blue w3-large">Login</button>
+    <div id="login" class="w3-modal">
+            <span onclick="document.getElementById('login').style.display='none'" class="w3-closebtn w3-hover-red w3-padding-16 w3-container w3-display-topright">X</span>
+    
+            <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width : 500px">
+                <div class="w3-center"><br>
+                    <img src="img/hari.jpg" alt="sarvavtari avtar photo" style="width : 30%" class="w3-circle w3-margin-top">
+                </div>
+    
+                <div class="w3-container">
+                    <div class="w3-section" id="gform" >
+                        <label><b>Username</b></label>
+                        <input id="uname" name="uname" value="hari" type="text" class="uname w3-input w3-border w3-margin-bottom" placeholder="Enter user name">
+                        <label><b>Password</b></label>
+                        <input id="pass" name="pass" type="password" class="uname w3-input w3-border" placeholder="Enter the password">
+                        <button onclick=validate(); class="w3-btn w3-btn-block w3-green w3-margin-top">Login</button>
+                    </div>
+                </div>
+                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                    <button onclick="document.getElementById('login').style.display='none'" type="button" class="w3-btn w3-red">Close</button>
+                    <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+                </div>
+            </div>
+        </div>
+        Login form modal end-->
+
+    <!--Scripts external non of use you can delete -->
+    
+</body>
+</html>
