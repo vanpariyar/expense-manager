@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jay Swaminarayan</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Signika&display=swap" rel="stylesheet">
+    <style>
+      body{
+        font-family: 'Signika', sans-serif;
+      }
+    </style>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/a1.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -13,6 +20,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Signika&display=swap" rel="stylesheet">
+    <style>
+      body{
+        font-family: 'Signika', sans-serif;
+      }
+    </style>
 </head>
     
 
@@ -51,7 +65,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title text-center" id="exampleModalLabel">Hisab nu module હિસાબ નું ફોર્મ</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -59,7 +73,14 @@
         <div class="modal-body">
 
           <header class="w3-container w3-blue w3-round w3-center">
-            <h3>Hisab nu module હિસાબ નું ફોર્મ</h3>
+              <img
+                src = https://lh3.googleusercontent.com/rhGFcurhKzl1FMVnnt1tLzPzsCbXDblX47tGMmcF39yCP7kLvccWD_7diXtktBxTlCBYRg9Y_PfkibJHTJuLfiEG1LczqXPXwhWMn55mgbnG33y3PK4oRIzw1_oavZOQxd02SE84FivJy6iUnKjGDBylXBTgXPt-BRTHWazm-OCrf0IzgqGS9fHqooVz9sDmki-g51DEL0pydt_pdbgKH7t7Fj0IGkOX6OGIVOQ6epvI3sDusI2kPiVANnrPez_vwUi3989jxa8tA3n9aLO_Pa0LMDmNgcbtg_0JOJVOx9OmBBhfJ0n53hE4ReO50tDIZOSDBhYhaiWi9rG3PgSjiDFnw4MZ7pkqU3HTkinFYnusPwZlIR_wlnEdUSfjSm5Pv6IrUOtnN_kl9cdJGManrry_vXbXi8TCpgI4rLP_wSWbJ7wkJ4XcaU_FZLCM72UveXHMOdBfJxbnIjEKhRH_cJktjKSDlREq7ixE--K206OiJ0CXw00NEqIYxNTrhHRuwzYhGwjY3Ky4zwZcK1HqhRppOeSkVHgMkwKD7x-zKF193_dPLZVPRIFpF22oCO46o8fphwE3_y9t6arZmKloi0a0zk1uz4cNPdYtNtH1cJarQMAKV-wdo-61OhVqg0YyDoCEJc14qPmGKsTWHAXoNjkA9cF6i8Pm=w502-h669-no
+                height="150px"
+                width="150px"
+                class="rounded-circle mx-auto d-block"
+
+              />
+            
           </header>
           <form id="gform" class="was-validated"><br>
             <div class="form-group">
@@ -77,7 +98,7 @@
               <div class="invalid-feedback">Please Feel Right Value.</div>
               <div class="valid-feedback">Correct.</div>
             </div>
-             <input onclick="insert_value();" id="insertbtn" class="btn btn-primary" type="" value="insert">
+             <a onclick="insert_value();" id="insertbtn" class="btn btn-primary" >insert</a>
             <a class="btn btn-info round" href="https://docs.google.com/spreadsheets/d/1MnhtTO7rMuMFDvoPP6HTrU4CRrnQYX8Cv1Nv7eSbESw/edit?usp=sharing" target="_blank">Goto sheet</a> 
 
           </form>
@@ -93,77 +114,84 @@
       </div>
     </div>
   </div>
-    
+
+<script>
 
 
+  $(document).ready(function(){
+    $('form').on('change','input',function(){
+      if( $('#insertbtn').hasClass('disabled') ){
+        $('#insertbtn').removeClass('disabled');
+      }
+    });
+  });
 
-  <script>
-  
+
   var script_url = "https://script.google.com/macros/s/AKfycbyvtKSzvxk8f5vum9qv_JVLtJNCqz8zbcHdN1-HsKqt2nx6psk/exec";
   
   // Make an AJAX call to Google Script
-  function insert_value() {
-    
-
-
-var tarikh=	$("#tarikh").val();
+function insert_value() {
+  var tarikh=	$("#tarikh").val();
 	var what= $("#what").val();
 	var kharcho=$("#kharcho").val();
 	
-    var url = script_url+"?callback=ctrlq&tarikh="+tarikh+"&kharcho="+kharcho+"&what="+what+"&action=insert";
-  
-
-    jQuery.ajax({
+    var url = script_url+"?tarikh="+tarikh+"&kharcho="+kharcho+"&what="+what+"&action=insert";
+     var abc= jQuery.ajax({
       crossDomain: true,
       url: url ,
       method: "GET",
       dataType: "jsonp",
-      success: function(e,f){ alert(f) } 
-    });
+      beforeSend: function(xhr){ 
+        $('#insertbtn').addClass('disabled');
+      },
+      success: function(e,f){ 
+        e = JSON.stringify(e);
+        alert(e);
+      },
+      
 
-  }
-  
-  function update_value(){
-    var id1=	$("#id").val();
-	  var name= $("#name").val();
-    var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=update";
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url ,
-      method: "GET",
-      dataType: "jsonp"
     });
-  }
+    // abc = JSON.stringify(abc);
+    // alert(abc);
+    console.log(abc);
+}
 
-  function delete_value(){
-	$("#re").css("visibility","hidden");
-     document.getElementById("loader").style.visibility = "visible";
-	$('#mySpinner').addClass('spinner');
-    var id1=	$("#id").val();
-    var name= $("#name").val();
-    var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=delete";
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url ,
-      method: "GET",
-      dataType: "jsonp"
-    });
-  }
+function hari(){
+    alert('hari');
+}
+function update_value(){
+  var id1=	$("#id").val();
+  var name= $("#name").val();
+  var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=update";
+  var request = jQuery.ajax({
+    crossDomain: true,
+    url: url ,
+    method: "GET",
+    dataType: "jsonp"
+  });
+}
+
+function delete_value(){
+  var id1=	$("#id").val();
+  var name= $("#name").val();
+  var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=delete";
+  var request = jQuery.ajax({
+    crossDomain: true,
+    url: url ,
+    method: "GET",
+    dataType: "jsonp"
+  });
+}
   // print the returned data
-  function ctrlq(e) {
-	$("#re").html(e.result);
-	$("#re").css("visibility","visible");
+function ctrlq(e) {
+	alert(e.result);
 	read_value();
-  }
-  function read_value() {
+}
+function read_value() {
   var url = script_url+"?action=read";
-
   $.getJSON(url, function (json) {
-
     json = JSON.stringify(json)
     alert(json);
-
-    
   });
 }
   
