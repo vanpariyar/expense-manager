@@ -43,14 +43,23 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">
+                  <i class="fa fa-book"></i>   Features
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">
+                  <i class="fa fa-money"></i>  Pricing
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-user"></i> Login
+              </a>
             </li>
           </ul>
           <span class="navbar-text">
-            Navbar text with an inline element
+            Jay Swaminarayan
           </span>
         </div>
       </nav>
@@ -78,11 +87,9 @@
                 height="150px"
                 width="150px"
                 class="rounded-circle mx-auto d-block"
-
               />
-            
           </header>
-          <form id="gform" class="was-validated"><br>
+          <form id="gform" class="needs-validation" novalidate><br>
             <div class="form-group">
               <input class="form-control"  type="date" name="tarikh" id="tarikh" placeholder="Date તારીખ" required ><label class="" for="">Date તારીખ </label>  
               <div class="invalid-feedback">Please Feel Right Value.</div>
@@ -98,7 +105,7 @@
               <div class="invalid-feedback">Please Feel Right Value.</div>
               <div class="valid-feedback">Correct.</div>
             </div>
-             <a onclick="insert_value();" id="insertbtn" class="btn btn-primary" >insert</a>
+             <button id="insertbtn" class="btn btn-primary" type="submit" >insert</button>
             <a class="btn btn-info round" href="https://docs.google.com/spreadsheets/d/1MnhtTO7rMuMFDvoPP6HTrU4CRrnQYX8Cv1Nv7eSbESw/edit?usp=sharing" target="_blank">Goto sheet</a> 
 
           </form>
@@ -118,10 +125,44 @@
 <script>
 
 
-  $(document).ready(function(){
+ 
+
+
+//   // Example starter JavaScript for disabling form submissions if there are invalid fields
+// (function() {
+//   'use strict';
+//   window.addEventListener('load', function() {
+//     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+//     var forms = document.getElementsByClassName('needs-validation');
+//     // Loop over them and prevent submission
+//     var validation = Array.prototype.filter.call(forms, function(form) {
+//       form.addEventListener('submit', function(event) {
+//         if (form.checkValidity() === false) {
+//           event.preventDefault();
+//           event.stopPropagation();
+//         }
+//         form.classList.add('was-validated');
+//       }, false);
+//     });
+//   }, false);
+// })();
+
+
+
+$(document).ready(function(){
     $('form').on('change','input',function(){
       if( $('#insertbtn').hasClass('disabled') ){
         $('#insertbtn').removeClass('disabled');
+      }
+      
+    });
+    $('#insertbtn').click((e)=>{
+      e.preventDefault();
+      var form = document.getElementById('gform');
+      if( form.checkValidity() == false ){
+        $('#gform').addClass('was-validated');
+      }else {
+        insert_value();  
       }
     });
   });
@@ -147,6 +188,10 @@ function insert_value() {
       success: function(e,f){ 
         e = JSON.stringify(e);
         alert(e);
+        $('input').each( (key, element) => {
+          element.value=" ";
+        });
+        $('#gform').removeClass('was-validated');
       },
       
 
