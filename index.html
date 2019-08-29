@@ -151,10 +151,7 @@
 
 $(document).ready(function(){
     $('form').on('change','input',function(){
-      if( $('#insertbtn').hasClass('disabled') ){
-        $('#insertbtn').removeClass('disabled');
-      }
-      
+      $('#insertbtn').show();  
     });
     $('#insertbtn').click((e)=>{
       e.preventDefault();
@@ -183,13 +180,13 @@ function insert_value() {
       method: "GET",
       dataType: "jsonp",
       beforeSend: function(xhr){ 
-        $('#insertbtn').addClass('disabled');
+        $('#insertbtn').hide();
       },
       success: function(e,f){ 
         e = JSON.stringify(e);
         alert(e);
-        $('input').each( (key, element) => {
-          element.value=" ";
+        $('form input').each( (key, element) => {
+          element.value="";
         });
         $('#gform').removeClass('was-validated');
       },
