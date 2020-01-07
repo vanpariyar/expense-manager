@@ -6,10 +6,10 @@
 	"display" : "standalone",
 	"start_url" : "https://vanpariyar.github.io/expense-manager/",
 	"short_name" : "Jay Swaminaraya",
-	"theme_color" : "transparent",
+	"theme_color" : "#3367D6",
 	"description" : "This is the simple Expanse manager",
 	"orientation" : "any",
-	"background_color" : "transparent",
+	"background_color" : "#3367D6",
 	"related_applications" : "",
 	"prefer_related_applications" : "false",
 	"icons" : [
