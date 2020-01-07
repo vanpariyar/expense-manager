@@ -3,7 +3,7 @@
 	"lang" : "en",
 	"name" : "Jay Swaminarayan",
 	"scope" : "/expense-manager/",
-	"display" : "browser",
+	"display" : "standalone",
 	"start_url" : "https://vanpariyar.github.io/expense-manager/",
 	"short_name" : "Jay Swaminaraya",
 	"theme_color" : "transparent",
