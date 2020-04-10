@@ -41,7 +41,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ronak Vanpariya** - *Initial work* - [Vanpariyar](https://github.com/vanpariyar)
 
 See also the list of [contributors](https://github.com/vanpariyar/expense-manager/contributors) who participated in this project.
 
