@@ -1,0 +1,117 @@
+:root {
+    --primary-color: #333; 
+    --primary-hover-color: #ddd;
+    --secondry-color: #f2f2f2;
+    --hover-text-color: black;
+    --active-bg-color: #4CAF50;
+    --active-text-color: white;
+}
+*{
+    box-sizing: border-box;
+    font-family: "Lucida Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+header {
+    margin: 0;
+}
+.topnav {
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: var(--secondry-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: var(--primary-hover-color);
+    color: var(--hover-text-color);
+}
+.topnav a.active {
+    background-color: var(--active-bg-color);
+    color: var(--active-text-color);
+}
+.topnav .icon {
+    display: none;
+}
+
+
+/* Custom Grids */
+.row::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+[class*="col-"]{
+    float: left;
+    padding: 15px;
+    width: 100%;
+}
+
+@media only screen and ( min-width:768px ) {
+    .col-3{
+        width: 25%;
+    }
+    .col-6{
+        width: 50%;
+    }
+}
+/* Grid  ENDS*/
+
+.container {
+    padding: 5px 16px;
+}
+.center {
+    text-align: center;
+}
+/* Style Form */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+/* Media Queries */
+@media only screen and (max-width: 600px ){
+    .topnav a:not(:first-child) { display: none; }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+@media only screen and (max-width: 600px){
+    .topnav.responsive { position: relative; }
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+}
