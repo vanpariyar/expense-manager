@@ -25,10 +25,18 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-                <div class="container center">
+                <div class="container center expanse-container">
+                    <h1>Expanse Tracker</h1>
                     <form action="">
-                        <label for="amount">Amount</label>
-                        <input type="text">
+                        <div class="amount-details">
+                            <label for="date">Date</label>
+                            <input type="date">
+                            <label for="details[]">Details</label>
+                            <input type="text" name="details[]">
+                            <label for="amount[]">Amount</label>
+                            <input type="number" name="amount[]">
+                        </div>
+                        <!-- <button id="addMore" type="button" class="addMore">+</button> -->
                         <input type="submit" value="Enter Expanse">
                     </form>
                 </div>
