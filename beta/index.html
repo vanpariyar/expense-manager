@@ -13,7 +13,7 @@
         <!-- Top Navigation -->
         <nav class="topnav" id="myTopnav">
             <a href="#" class="active"> Home </a>
-            <a href="#"> News </a>
+            <a href="#all-expense"> All Expenses </a>
             <a href="#"> Contact </a>
             <a href="#"> About </a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()"> 
@@ -26,15 +26,16 @@
             <div class="col-3"></div>
             <div class="col-6">
                 <div class="container center expanse-container">
+                    <img src="img/expense-details.png" alt="" class="responsive">
                     <h1>Expanse Tracker</h1>
                     <form action="">
                         <div class="amount-details">
                             <label for="date">Date</label>
                             <input type="date">
-                            <label for="details[]">Details</label>
-                            <input type="text" name="details[]">
-                            <label for="amount[]">Amount</label>
-                            <input type="number" name="amount[]">
+                            <label for="details">Details</label>
+                            <input type="text" name="details">
+                            <label for="amount">Amount</label>
+                            <input type="number" name="amount">
                         </div>
                         <!-- <button id="addMore" type="button" class="addMore">+</button> -->
                         <input type="submit" value="Enter Expanse">
@@ -45,6 +46,40 @@
         </div>
     </section>
 
+    <section id="all-expense">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="container center">
+                    <h1>All Expenses</h1>
+                    <button type="button">See All Expenses</button>
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td>23/10/2200</td>
+                            <td>12542</td>
+                            <td>Demo</td>
+                        </tr>
+                        <tr>
+                            <td>23/10/2200</td>
+                            <td>12542</td>
+                            <td>Demo</td>
+                        </tr>
+                        <tr>
+                            <td>23/10/2200</td>
+                            <td>12542</td>
+                            <td>Demo</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </section>
 
     <script src="js/script.js"></script>
 </body>

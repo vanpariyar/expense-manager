@@ -75,7 +75,7 @@ header {
 input[type=text], input[type=date], input[type=number], select, textarea , button{
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
@@ -96,22 +96,35 @@ input[type=submit]:hover {
 }
 /* */
 .expanse-container {
+    box-sizing: content-box;
     padding: 25px;
     border-radius: 5px;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
     min-height: 200px;
-    margin: 100px auto;
+    margin-top: 100px auto;
     background: white;
     border-radius: 5px;
 }
 button {
     /* width: 100%; */
     padding: 12px;
+    color: var(--active-bg-color);
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+}
+table {
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
 }
 .addMore{
     border-radius: 50%;
@@ -120,6 +133,13 @@ button {
     margin-bottom: 15px;
     width: min-content;
     display: block;
+}
+.responsive {
+    max-width: 40%;
+    height: auto;
+}
+img .responsive {
+    border-radius: 50%;
 }
 /* Media Queries */
 @media only screen and (max-width: 600px ){
