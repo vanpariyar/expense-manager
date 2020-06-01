@@ -134,7 +134,7 @@ th, td {
     width: min-content;
     display: block;
 }
-.responsive {
+img.responsive {
     max-width: 40%;
     height: auto;
 }
